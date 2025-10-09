@@ -1,0 +1,2405 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <meta name="author" content="Dahiru nasiru">  
+  <title>SHUWARIN 2025</title>  
+  <style>  
+    body {  
+      margin: 0;  
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+      background: #f5f5f5;  
+      color: #333;  
+    }  
+
+    #nav {  
+      position: fixed;  
+      top: 0;  
+      left: 0;        
+      background: #ff54ed;  
+      width: 100%;  
+      display: flex;  
+      justify-content: space-around;  
+      padding: 10px 0;  
+      z-index: 999;  
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);  
+    }  
+
+    #nav a {  
+      color: white;  
+      text-decoration: none;  
+      font-weight: bold;  
+      padding: 10px 15px;  
+      border-radius: 10px;  
+      transition: background 0.3s ease;  
+    }  
+
+    #nav a:hover {  
+      background: green;  
+    }  
+#nav a:focus {
+     background: blue;
+}
+    section {  
+      display: none;  
+      padding: 80px 20px 20px;  
+      max-width: 1200px;  
+      margin: 0 auto;  
+    }  
+
+    section.active {  
+      display: block;  
+    }  
+
+    .members-container {  
+      display: grid;  
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  
+      gap: 20px;  
+      margin-top: 20px;  
+    }  
+
+    .member-card {  
+      background: white;  
+      border-radius: 10px;  
+      padding: 15px;  
+      overflow: hidden;  
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);  
+      height: 30px;  
+      transition: transform 0.3s ease, box-shadow 0.3s ease, height 5.5s ease;  
+    }  
+
+    .member-card:hover {  
+      transform: translateY(-5px);  
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);  
+      height: auto;  
+    }  
+
+    .member-card h2 {  
+      background: blue;  
+      margin: -15px -15px 15px -15px;  
+      padding: 15px;  
+      color: white;  
+      border-radius: 10px 10px 0 0;  
+    }  
+
+    .member-content {  
+      display: flex;  
+      gap: 15px;  
+    }  
+
+    .member-image {  
+      flex-shrink: 0;  
+    }  
+
+    .member-image img {  
+      width: 100px;  
+      height: 100px;  
+      object-fit: cover;  
+      border-radius: 8px;  
+      border: 2px solid #ff54ed;  
+      transition: width 0.5s ease-in, height 3.5s linear;  
+    }  
+
+    .member-image img:hover{  
+      width: 300px;  
+      height: auto;  
+    }  
+
+    .member-info {  
+      flex-grow: 1;  
+    }  
+
+    .member-info p {  
+      margin: 8px 0;  
+      line-height: 1.4;  
+    }  
+
+    .social-icons {  
+      display: flex;  
+      gap: 10px;  
+      margin-top: 10px;  
+      margin-left: auto;  
+      margin-right: auto;  
+    }  
+
+    .social-icons a {  
+      display: inline-block;  
+      width: 60px;  
+      height: 60px;  
+      background-color: #f0f0f0;  
+      border-radius: 50%;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      transition: background 0.3s ease;  
+    }  
+
+    .social-icons a:hover {  
+      background-color: #ff54ed;  
+    }  
+
+    .social-icons img {  
+      width: 50px;  
+      height: 50px;  
+    }  
+
+    #searchInput {  
+      width: 100%;  
+      max-width: 500px;  
+      padding: 12px;  
+      margin-bottom: 20px;  
+      font-size: 16px;  
+      border: 2px solid #ddd;  
+      border-radius: 8px;  
+      box-sizing: border-box;  
+    }  
+
+    #searchInput:focus {  
+      border-color: #ff54ed;  
+      outline: none;  
+    }  
+
+    #perfect ul {  
+      list-style-type: none;  
+      padding: 0;  
+      display: grid;  
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  
+      gap: 15px;  
+    }  
+
+    #perfect li {  
+      background: white;  
+      padding: 15px;  
+      border-radius: 8px;  
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);  
+    }  
+
+    @media (max-width: 768px) {  
+      #nav {  
+        flex-wrap: wrap;  
+      }  
+        
+      .member-content {  
+        flex-direction: column;  
+      }  
+        
+      .member-image {  
+        align-self: center;  
+      }  
+    }  
+
+    @media (max-width: 480px) {  
+      #nav a {  
+        padding: 8px 10px;  
+        font-size: 14px;  
+      }  
+        
+      section {  
+        padding: 70px 15px 15px;  
+      }  
+    }  
+
+    /*  slider container */  
+    .slider_container {  
+      padding: 5px;  
+      margin: 10px;  
+      border: 8px solid #ff54ed;  
+      position: relative;  
+      text-align: center;  
+      height: 500px;  
+      overflow-y: hidden;  
+    }  
+
+    #slider_button_holder{  
+      border: 1px solid #ff54ed;  
+      overflow: hidden;  
+      width: 100%;  
+      height: 30px;  
+      justify-content: space-around;  
+      display: flex;  
+      flex-direction: row;  
+      position: absolute;  
+      bottom: 0px;  
+      left: 0px;  
+      background:#ff54ed ;  
+    }  
+
+    .slider_button{  
+      background: blue;  
+      height: 40px;  
+      border-top-left-radius: 10px;  
+      border-top-right-radius: 10px;  
+      margin: 10px;  
+      margin-bottom: 2px;  
+      margin-top: 2px;  
+      padding-left: 25px;  
+      padding-right: 25px;  
+      padding-top: ;  /* Na bar shi yadda kake so */  
+    }  
+
+    /* image selector */  
+    .slider_container img {  
+      height: auto;  
+      width: 90%;  
+      border: 8px double blue;  
+      border-radius: 10px;  
+    }  
+.member-content h3{
+      text-align: center;
+
+}
+  </style>  
+</head>  
+<body>  
+
+  <!-- Navigation -->    
+  <nav id="nav">  
+    <a href="#home">Home</a>  
+    <a href="#members">Members</a>  
+    <a href="#perfect">Perfect</a>  
+    <a href="#developer">Developer</a>  
+  </nav>  
+
+  <!-- Home Section -->    
+  <section id="home" class="active">  
+    <h1>Welcome to SHUWARIN 2025</h1>  
+    <p>This page contains stories and records of our school life.</p>  
+    <br>  
+    <div class="slider_container">  
+      <img id="slider" src="Screenshot_20250329-011950.png">  
+      <br>  
+      <div id="slider_button_holder">  
+        <button onclick="prev()" class="slider_button">prev</button>  
+        <button onclick="next()"  class="slider_button">next</button>  
+      </div>  
+    </div>  
+
+
+
+
+  </section>  
+
+  <!-- Members Section -->    
+  <section id="members">  
+    <h1>Members</h1>  
+    <input type="search" id="searchInput" placeholder="Search member name..." />  
+
+    <div class="members-container">  
+      
+  <div class="members-container">
+    <!-- Existing Members -->
+    <div class="member-card" id="dahiru_nasiru">
+      <h2>Dahiru Nasiru</h2>
+      <div class="member-content">
+        <div class="member-image">
+          <img src="IMG_20241205_070114_952.jpg" alt="Dahiru Nasiru"/>
+        </div>
+        <div class="social-icons">
+          <a href="#"><img src="Facebook.svg" alt="Facebook"></a>
+          <a href=""><img src="Telegram.svg" alt="Telegram"></a>
+          <a href="https://wa.me/2348038628250"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>
+        </div>
+        <div class="member-info">
+          <p><strong>Nickname:</strong> Abba (D.Network)</p>
+          <p><strong>Rank:</strong> Head student</p>
+          <p><strong>Department:</strong> Science</p>
+          <p><strong>Ambition:</strong> Software Developer</p>
+          <p><strong>Address:</strong> [Your address]</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-card" id="rayyanu_adamu">
+      <h2>Rayyanu Adamu</h2>
+      <div class="member-content">
+        <div class="member-image">
+          <img src="rayyanu.jpg" alt="Rayyanu Adamu"/>
+        </div>
+        <div class="social-icons">
+          <a href="#"><img src="Facebook.svg" alt="Facebook"></a>
+          <a href="https://t.me/2348107570200"><img src="Telegram.svg" alt="Telegram"></a>
+          <a href="https://wa.me/2348108560200"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>
+        </div>
+        <div class="member-info">
+          <p><strong>Nickname:</strong> [Nickname]</p>
+          <p><strong>Rank:</strong> [Rank]</p>
+          <p><strong>Department:</strong> [Department]</p>
+          <p><strong>Ambition:</strong> [Ambition]</p>
+          <p><strong>Address:</strong> [Address]</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-card" id="abubakar_mika">
+      <h2>Abubakar Mika</h2>
+      <div class="member-content">
+        <div class="member-image">
+          <img src="amika.jpg" alt="Abubakar Mika"/>
+        </div>
+        <div class="social-icons">
+          <a href="#"><img src="Facebook.svg" alt="Facebook"></a>
+          <a href=""><img src="Telegram.svg" alt="Telegram"></a>
+          <a href="https://wa.me/+2349016124908"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>
+        </div>
+        <div class="member-info">
+          <p><strong>Nickname:</strong> Scorpion</p>
+          <p><strong>Rank:</strong> Library prefect</p>
+          <p><strong>Department:</strong> Science</p>
+          <p><strong>Ambition:</strong> [Ambition]</p>
+          <p><strong>Address:</strong> Shuwarin, Tashar-yada</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-card" id="mansur_idris">
+      <h2>Mansur Idris</h2>
+      <div class="member-content">
+        <div class="member-image">
+          <img src="mansur.jpg" alt="Mansur Idris"/>
+        </div>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/offical.mansur.junior"><img src="Facebook.svg" alt="Facebook"></a>
+          <a href="https://t.me/+2348083334679"><img src="Telegram.svg" alt="Telegram"></a>
+          <a href="https://wa.me/+2348083334679"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>
+        </div>
+        <div class="member-info">
+          <p><strong>Nickname:</strong> [Nickname]</p>
+          <p><strong>Rank:</strong> Deputy Head student</p>
+          <p><strong>Department:</strong> Art</p>
+          <p><strong>Ambition:</strong> Business man</p>
+          <p><strong>Address:</strong> Gurduba</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add New Members Here -->
+  <div class="member-card" id="hamza_bello">    
+  <h2>Hamza Bello</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Hamza bello, nickname.hamzasco, phone no.08068779429, town.shuwarin, ambition.nursing.jpg" alt="Hamza Bello"/>    
+    </div>    
+    <h3> follow Hamza Bello on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348068779429"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Hamzasco)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Nursing</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="abdulsalam_kabiru">    
+  <h2>Abdulsalam Kabiru</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="abdulsalam kabiru, nickname.ak one, phone no.07043330894, town.shuwarin, ambition.electrical engineering.jpg" alt="Abdulsalam Kabiru"/>    
+    </div>    
+    <h3> follow Abdulsalam Kabiru on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347043330894"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Ak One)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Electrical Engineering</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hamza_haruna">    
+  <h2>Hamza Haruna</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Hamza Haruna,Nick name.Alaphone,09035471751.Town korama.Ambition Doctor .jpg" alt="Hamza Haruna"/>    
+    </div>    
+    <h3> follow Hamza Haruna on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349035471751"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Alaphone)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Korama</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="usman_abdullahi">    
+  <h2>Usman Abdullahi</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Usman Abdullahi, nick name Dee lagos. Town Shuwarin.phone 08127721158.Ambition Business man.jpg" alt="Usman Abdullahi"/>    
+    </div>    
+    <h3> follow Usman Abdullahi on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348127721158"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Dee Lagos)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Business Man</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="dalha_sani">    
+  <h2>Dalha Sani</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="dalha sani, nickname.dalson, phone no.08136749811, town.gurum, ambition.dactor.jpg" alt="Dalha Sani"/>    
+    </div>    
+    <h3> follow Dalha Sani on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348136749811"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Dalson)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Gurum</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="jafar_haruna">    
+  <h2>Jafar Haruna</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Jafar Haruna,nickname jafar.Town Korama.Ambition islamic schlor.jpg" alt="Jafar Haruna"/>    
+    </div>    
+    <h3> follow Jafar Haruna on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href=""><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Jafar)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Islamic Scholar</p>    
+      <p><strong>Address:</strong> Korama</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="fatima_sani">    
+  <h2>Fatima Sani</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Fatima sani, nickname.binta, phone no.09061109015,town . shuwarin, ambition. public health.jpg" alt="Fatima Sani"/>    
+    </div>    
+    <h3> follow Fatima Sani on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349061109015"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Binta)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Public Health</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="maryam_hassan_takusha">    
+  <h2>Maryam Hassan Takusha</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="maryam hassan takusha, nickname.mama, phone no.08107588465, town.shuwarin, ambition.doctor.jpg" alt="Maryam Hassan Takusha"/>    
+    </div>    
+    <h3> follow Maryam Hassan Takusha on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348107588465"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Mama)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hafsat_abdullahi">    
+  <h2>Hafsat Abdullahi</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="hafsat Abdullahi, nickname hafseey, phone no.07038227845, town.shuwarin, ambition business.jpg" alt="Hafsat Abdullahi"/>    
+    </div>    
+    <h3> follow Hafsat Abdullahi on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347038227845"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Hafseey)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Business</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="shamsiyya_haruna">    
+  <h2>Shamsiyya Haruna</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Shamsiyya Haruna, Nick name Shamsinat. Phone number 08054888231.Town Gurduba. Ambition Doctor.jpg" alt="Shamsiyya Haruna"/>    
+    </div>    
+    <h3> follow Shamsiyya Haruna on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348054888231"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Shamsinat)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Gurduba</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="zahara_u_aliyu">    
+  <h2>Zahara U Aliyu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Zahara u aliyu, nickname.zarah buety, phone no.07045890291, town.shuwarin, ambition.dactor.jpg" alt="Zahara U Aliyu"/>    
+    </div>    
+    <h3> follow Zahara U Aliyu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347045890291"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Zarah Buety)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="dahiru_nasiru">    
+  <h2>Dahiru Nasiru</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="dahiru nasiru, nickname network, phone no.08038688250, town.shuwarin, ambition.software developer.jpg" alt="Dahiru Nasiru"/>    
+    </div>    
+    <h3> follow Dahiru Nasiru on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348038688250"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Network)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Software Developer</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hamidda_nuhu">    
+  <h2>Hamidda Nuhu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="hamidda nuhu, nickname.hamee, phone no.09063991124, town.shuwarin, ambition.business.jpg" alt="Hamidda Nuhu"/>    
+    </div>    
+    <h3> follow Hamidda Nuhu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349063991124"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Hamee)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Business</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hauwa_a_musa">    
+  <h2>Hauwa A Musa</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Hauwa' A Musa, nick name mama. Town Shuwarin.phone number 08037805669.Ambition Nursing.jpg" alt="Hauwa A Musa"/>    
+    </div>    
+    <h3> follow Hauwa A Musa on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348037805669"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Mama)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Nursing</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="umar_adamu">    
+  <h2>Umar Adamu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Umar Adamu, Nick name President. Phone number 07061568238,07012851144.Town ShuwarinKudu. Ambition Enterpreneur .jpg" alt="Umar Adamu"/>    
+    </div>    
+    <h3> follow Umar Adamu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347061568238"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (President)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Entrepreneur</p>    
+      <p><strong>Address:</strong> ShuwarinKudu</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="mustapha_adamu">    
+  <h2>Mustapha Adamu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Mustapha Adamu,nickname shugaba.Town Shuwarin.Ambition Allah choice.jpg" alt="Mustapha Adamu"/>    
+    </div>    
+    <h3> follow Mustapha Adamu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href=""><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Shugaba)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Allah Choice</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="umar_inuwa">    
+  <h2>Umar Inuwa</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Umar Inuwa, Nick Name Dan Alhaji. Phone number 09013786921. Town Shuwarin. Ambition Bus Man.jpg" alt="Umar Inuwa"/>    
+    </div>    
+    <h3> follow Umar Inuwa on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349013786921"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Dan Alhaji)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Bus Man</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="adamu_bello">    
+  <h2>Adamu Bello</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="adamu bello, nickname.baba, phone no.07061117931,town.shuwarin, ambition.farmer.jpg" alt="Adamu Bello"/>    
+    </div>    
+    <h3> follow Adamu Bello on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347061117931"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Baba)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Farmer</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="bilkisu_adamu">    
+  <h2>Bilkisu Adamu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="bilkisu adamu, nickname beely, phone no.07044156456, town.shuwarin, ambition.dactor.jpg" alt="Bilkisu Adamu"/>    
+    </div>    
+    <h3> follow Bilkisu Adamu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347044156456"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Beely)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="saminu_jamilu">    
+  <h2>Saminu Jamilu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="saminu jamilu, Nick name. samee boy, phone no.07040336633, town.gurum, ambition.business.jpg" alt="Saminu Jamilu"/>    
+    </div>    
+    <h3> follow Saminu Jamilu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347040336633"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Samee Boy)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Business</p>    
+      <p><strong>Address:</strong> Gurum</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="khadija_sama_una">    
+  <h2>Khadija Sama Una</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Khadija sama una, nickname.aunty, phone no.08126418785,town.shuwarin, ambition.dactor.jpg" alt="Khadija Sama Una"/>    
+    </div>    
+    <h3> follow Khadija Sama Una on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348126418785"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Aunty)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="yahaya_saadu">    
+  <h2>Yahaya Sa'adu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Yahaya Sa'adu,nickname Yackson.phonenumber 09137043262.TownKorama.Ambition nil.jpg" alt="Yahaya Sa'adu"/>    
+    </div>    
+    <h3> follow Yahaya Sa'adu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349137043262"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Yackson)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Nil</p>    
+      <p><strong>Address:</strong> Korama</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="adama_hassan">    
+  <h2>Adama Hassan</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="adama hassan, nickname.hajiya, phone no.09074818747, town.shuwarin, ambition.dactor.jpg" alt="Adama Hassan"/>    
+    </div>    
+    <h3> follow Adama Hassan on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349074818747"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Hajiya)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hafsat_abdulhameed">    
+  <h2>Hafsat Abdulhameed</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Hafsat Abdulhameed,nick name walida.phone number 07088587138.Town Shuwarin. Ambition Doctor.jpg" alt="Hafsat Abdulhameed"/>    
+    </div>    
+    <h3> follow Hafsat Abdulhameed on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347088587138"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Walida)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="mujahid_tukur">    
+  <h2>Mujahid Tukur</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Mujahid Tukur, Nick name Na baba.Town Shuwarin. Phone number Nil. Ambition Graphic designer.jpg" alt="Mujahid Tukur"/>    
+    </div>    
+    <h3> follow Mujahid Tukur on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href=""><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Na Baba)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Graphic Designer</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="faisal_salisu">    
+  <h2>Fai'sal Salisu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Fai'sal Salisu,nick name Ander phone number 07037015851.Town Shuwarin.Ambitikn Business man.jpg" alt="Fai'sal Salisu"/>    
+    </div>    
+    <h3> follow Fai'sal Salisu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347037015851"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Ander)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Business Man</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hauwau_suleiman_imam">    
+  <h2>Hauwa'u Suleiman Imam</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="hauwa'u Suleiman imam, nickname.jiddah, phone no.08063344891,, town.shuwarin, ambition.madicine.png" alt="Hauwa'u Suleiman Imam"/>    
+    </div>    
+    <h3> follow Hauwa'u Suleiman Imam on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348063344891"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Jiddah)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Medicine</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="isah_usman">    
+  <h2>Isah Usman</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="isah Usman, nickname.zanna, phone no.09020178888, town.shuwarin, ambition nursing.jpg" alt="Isah Usman"/>    
+    </div>    
+    <h3> follow Isah Usman on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349020178888"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Zanna)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Nursing</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="isyaka_aliyu">    
+  <h2>Isyaka Aliyu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Isyaka Aliyu,nick name mai lafiya, phone number 07038997428,Town Shuwarin.Ambition Nursing.jpg" alt="Isyaka Aliyu"/>    
+    </div>    
+    <h3> follow Isyaka Aliyu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347038997428"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Mai Lafiya)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Nursing</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="nura_suleiman">    
+  <h2>Nura Suleiman</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="nura Suleiman, nickname.d.fullo, phone no..08062187424,town.korama, ambition.dactor.jpg" alt="Nura Suleiman"/>    
+    </div>    
+    <h3> follow Nura Suleiman on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348062187424"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (D.Fullo)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Korama</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="abubakar_bello">    
+  <h2>Abubakar Bello</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Abubakar Bello, nick name Abk.phone number 09060628312.Town Shuwarin. Ambition Allah Choice.jpg" alt="Abubakar Bello"/>    
+    </div>    
+    <h3> follow Abubakar Bello on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349060628312"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Abk)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Allah Choice</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hafsat_isah">    
+  <h2>Hafsat Isah</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="hafsat isah, nickname.hafseey, phone no.09022118293, town.fatara. estate, ambition.biology.jpg" alt="Hafsat Isah"/>    
+    </div>    
+    <h3> follow Hafsat Isah on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349022118293"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Hafseey)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Biology</p>    
+      <p><strong>Address:</strong> Fatara Estate</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="okasha_auwalu">    
+  <h2>Okasha Auwalu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Okasha Auwalu,nick name Oke.Town Korama.phone number Nil.Ambtion Business.jpg" alt="Okasha Auwalu"/>    
+    </div>    
+    <h3> follow Okasha Auwalu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href=""><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Oke)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Business</p>    
+      <p><strong>Address:</strong> Korama</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="khadija_ismail">    
+  <h2>Khadija Ismail</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Khadija Ismail, nickname.nana, phone no.07079421906, town.shuwarin, ambition.midwiferey.jpg" alt="Khadija Ismail"/>    
+    </div>    
+    <h3> follow Khadija Ismail on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347079421906"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Nana)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Midwifery</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hassana_auwalu">    
+  <h2>Hassana Auwalu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="hassana auwalu, Nickname.hajiyoli, phone no.08101333678,town.shuwarin, ambition.dactor.jpg" alt="Hassana Auwalu"/>    
+    </div>    
+    <h3> follow Hassana Auwalu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348101333678"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Hajiyoli)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hauwau_salisu">    
+  <h2>Hauwa'u Salisu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="hauwa'u salisu, nickname. baby, phone no.08063971878, town.shuwarin, ambition.enviromental health.jpg" alt="Hauwa'u Salisu"/>    
+    </div>    
+    <h3> follow Hauwa'u Salisu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348063971878"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Baby)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Environmental Health</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="maryam_abubakar_buba">    
+  <h2>Maryam Abubakar Buba</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Maryam Abubakar Buba,nick name, Anty maryam.phone number 08165812000.Town Shuwarin. Ambition.jpg" alt="Maryam Abubakar Buba"/>    
+    </div>    
+    <h3> follow Maryam Abubakar Buba on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348165812000"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Anty Maryam)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> </p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="zainab_suleiman">    
+  <h2>Zainab Suleiman</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Zainab Suleiman, nickname zee, phone no.07047258967, town.shuwarin, ambition nursing.jpg" alt="Zainab Suleiman"/>    
+    </div>    
+    <h3> follow Zainab Suleiman on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347047258967"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Zee)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Nursing</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="auwalu_adamu">    
+  <h2>Auwalu Adamu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Auwalu Adamu, Nick Name Head Master. phone number 09132620320. Town Shuwarin kudu. Ambition Computer Science.jpg" alt="Auwalu Adamu"/>    
+    </div>    
+    <h3> follow Auwalu Adamu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349132620320"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Head Master)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Computer Science</p>    
+      <p><strong>Address:</strong> Shuwarin Kudu</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="aisha_ibrahim">    
+  <h2>Aisha Ibrahim</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Aisha ibrahim, nickname.aunty, phone no.08061258102, town.shuwarin, ambition.dactor.jpg" alt="Aisha Ibrahim"/>    
+    </div>    
+    <h3> follow Aisha Ibrahim on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348061258102"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Aunty)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="suleiman_abubakar">    
+  <h2>Suleiman Abubakar</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Suleiman abubakar, nickname.baba manu, phone.09069188338, town.shuwarin, ambition.business man.jpg" alt="Suleiman Abubakar"/>    
+    </div>    
+    <h3> follow Suleiman Abubakar on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349069188338"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Baba Manu)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Business Man</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="amina_muhd_salis">    
+  <h2>Amina Muhd Salis</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Amina muhd Salis,nick name seeyama.phone number 07066252750. Town Raju. Ambition Doctor.jpg" alt="Amina Muhd Salis"/>    
+    </div>    
+    <h3> follow Amina Muhd Salis on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347066252750"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Seeyama)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Raju</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="sadiya_nuhu">    
+  <h2>Sadiya Nuhu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="sadiya nuhu , nickname.alili, phone 08166024676, town.shuwarin, ambition.dactor.jpg" alt="Sadiya Nuhu"/>    
+    </div>    
+    <h3> follow Sadiya Nuhu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348166024676"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Alili)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="saminu_isah">    
+  <h2>Saminu Isah</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="saminu isah, nickname. Red dragon, phone no.07089332729, town.fatara estate, ambition.civil engineering.jpg" alt="Saminu Isah"/>    
+    </div>    
+    <h3> follow Saminu Isah on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347089332729"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Red Dragon)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Civil Engineering</p>    
+      <p><strong>Address:</strong> Fatara Estate</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="usman_abubakar">    
+  <h2>Usman Abubakar</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Usman Abubakar,nick name Nil.phone number 07036768396. Town Shuwarin. Ambition  Nil.jpg" alt="Usman Abubakar"/>    
+    </div>    
+    <h3> follow Usman Abubakar on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347036768396"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Nil)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Nil</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="shamiyya_usaini">    
+  <h2>Shamiyya Usaini</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Shamiyya Usaini, Nick name Yar mallam. Phone number 07032426998. Town Korama. Ambition NIL.jpg" alt="Shamiyya Usaini"/>    
+    </div>    
+    <h3> follow Shamiyya Usaini on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347032426998"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Yar Mallam)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> NIL</p>    
+      <p><strong>Address:</strong> Korama</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="maryam_yusif">    
+  <h2>Maryam Yusif</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="maryam yusif, nickname.mariyam, phone no.08163635024,town.shuwarin,ambition.business.jpg" alt="Maryam Yusif"/>    
+    </div>    
+    <h3> follow Maryam Yusif on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348163635024"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Mariyam)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Business</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="baraka_abubakar">    
+  <h2>Baraka Abubakar</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="baraka abubakar, nickname.hala, phone no.07071225522, town.shuwarin, ambition.business.jpg" alt="Baraka Abubakar"/>    
+    </div>    
+    <h3> follow Baraka Abubakar on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347071225522"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Hala)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Business</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="fatima_auwalu_jidawa">    
+  <h2>Fatima Auwalu Jidawa</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Fatima Auwalu Jidawa, nick nameTeemah.phone number 09066682100. Town Shuwarin. Ambition Doctor.jpg" alt="Fatima Auwalu Jidawa"/>    
+    </div>    
+    <h3> follow Fatima Auwalu Jidawa on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349066682100"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Teemah)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hassana_yakubu">    
+  <h2>Hassana Yakubu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Hassana Yakubu. Nick name Hassanu. phone number Nil. Town Shuwarin. Ambition Business woman.jpg" alt="Hassana Yakubu"/>    
+    </div>    
+    <h3> follow Hassana Yakubu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href=""><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Hassanu)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Business Woman</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hauwau_magaji">    
+  <h2>Hauwa'u Magaji</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Hauwa'u Magaji, nick name jeedah.phone number 09065780787. Town Shuwarin . Ambition Medical Doctor.jpg" alt="Hauwa'u Magaji"/>    
+    </div>    
+    <h3> follow Hauwa'u Magaji on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349065780787"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Jeedah)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Medical Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="abubakar_sani">    
+  <h2>Abubakar Sani</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Abubakar sani, Nick name.abba olo, phone no.09066634088, town.shuwarin, ambition nursing.jpg" alt="Abubakar Sani"/>    
+    </div>    
+    <h3> follow Abubakar Sani on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349066634088"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Abba Olo)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Nursing</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="muddasir_yusif">    
+  <h2>Muddasir Yusif</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="muddasir yusif, nickname.aloco, phone no.07010850184, town.shuwarin, ambition.civil engineering.jpg" alt="Muddasir Yusif"/>    
+    </div>    
+    <h3> follow Muddasir Yusif on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347010850184"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Aloco)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Civil Engineering</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="shafa_atu_ubale">    
+  <h2>Shafa Atu Ubale</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="shafa atu ubale, nickname. shafelly, phone no.09033825756, town.shuwarin, ambition.dactor.jpg" alt="Shafa Atu Ubale"/>    
+    </div>    
+    <h3> follow Shafa Atu Ubale on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349033825756"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Shafelly)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="zakariyya_isah">    
+  <h2>Zakariyya Isah</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="zakariyya isah, nickname.zakson, phone no.08146559707, town.shuwarin, ambition.business.jpg" alt="Zakariyya Isah"/>    
+    </div>    
+    <h3> follow Zakariyya Isah on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348146559707"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Zakson)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Business</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="sulaiman_abubakar">    
+  <h2>Sulaiman Abubakar</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Sulaiman Abubakar, Nick name Manu. Phone 09022377402. Town Shuwarin. Ambition President .jpg" alt="Sulaiman Abubakar"/>    
+    </div>    
+    <h3> follow Sulaiman Abubakar on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349022377402"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Manu)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> President</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="salisu_nuhu">    
+  <h2>Salisu Nuhu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Salisu Nuhu,Nick name Sk.Town Shuwarin.phone number 08131828267. Ambition Medical Lab.jpg" alt="Salisu Nuhu"/>    
+    </div>    
+    <h3> follow Salisu Nuhu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348131828267"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Sk)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Medical Lab</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="alhasan_yau">    
+  <h2>Alhasan Ya'u</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Alhasan Ya'u, nick name Nil. phone number 09133274316.Town Gurduba. Ambition Doctor.jpg" alt="Alhasan Ya'u"/>    
+    </div>    
+    <h3> follow Alhasan Ya'u on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349133274316"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Nil)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Gurduba</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="naziru_rabiu">    
+  <h2>Naziru Rabi'u</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="naziru rabi'u, nickname.teacher, phone no.07039711858, town.shuwarin, ambition.tearching.jpg" alt="Naziru Rabi'u"/>    
+    </div>    
+    <h3> follow Naziru Rabi'u on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347039711858"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Teacher)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Teaching</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="usaina_yakubu">    
+  <h2>Usaina Yakubu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="usaina yakubu, nickname.usee, phone no.08126377289, town.shuwarin, ambition.army.jpg" alt="Usaina Yakubu"/>    
+    </div>    
+    <h3> follow Usaina Yakubu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348126377289"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Usee)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Army</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="furera_haladu">    
+  <h2>Furera Haladu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Furera Haladu, Nick name Nil. phone number Nil. Town Korama. Ambition Civic.jpg" alt="Furera Haladu"/>    
+    </div>    
+    <h3> follow Furera Haladu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href=""><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Nil)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Civic</p>    
+      <p><strong>Address:</strong> Korama</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hadiza_nuhu">    
+  <h2>Hadiza Nuhu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Hadiza Nuhu,nick name momy.phone number 09042604628.Town Shuwarin. Ambition Doctor.jpg" alt="Hadiza Nuhu"/>    
+    </div>    
+    <h3> follow Hadiza Nuhu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349042604628"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Momy)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="usman_muhammad">    
+  <h2>Usman Muhammad</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Usman Muhammad, nick name Kundi.Town Shuwarin. Ambition Engineering.jpg" alt="Usman Muhammad"/>    
+    </div>    
+    <h3> follow Usman Muhammad on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href=""><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Kundi)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Engineering</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="aliyu_sabo">    
+  <h2>Aliyu Sabo</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Aliyu Sabo,nick name Snake.Town Shuwarin.Phone number 08130432516.Town Shuwarin. Ambition Lagos Doctor.jpg" alt="Aliyu Sabo"/>    
+    </div>    
+    <h3> follow Aliyu Sabo on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348130432516"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Snake)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Lagos Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="zaharau_basiru">    
+  <h2>Zahara'u Basiru</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Zahara'u Basiru, nick name zarah.phone number 07010775681.0Town Shuwarin. Ambition Pharmacy.jpg" alt="Zahara'u Basiru"/>    
+    </div>    
+    <h3> follow Zahara'u Basiru on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347010775681"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Zarah)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Pharmacy</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="abdurrahaman_musa">    
+  <h2>Abdurrahaman Musa</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Abdurrahaman Musa,nick name.Amman.phone nuy 07043767465.Town Mujiyawa.Ambition Doctor.jpg" alt="Abdurrahaman Musa"/>    
+    </div>    
+    <h3> follow Abdurrahaman Musa on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347043767465"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Amman)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Mujiyawa</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="zayyanu_umar">    
+  <h2>Zayyanu Umar</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Zayyanu Umar,nick name Dan mallam.phone number 09074289271.Town Shuwarin.Ambition Doctor.jpg" alt="Zayyanu Umar"/>    
+    </div>    
+    <h3> follow Zayyanu Umar on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349074289271"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Dan Mallam)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="sadiya_abdullahi">    
+  <h2>Sadiya Abdullahi</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Sadiya Abdullahi,nick name sadeeya.phone number Nil. Town Shuwarin.Ambition Islamic scholar.jpg" alt="Sadiya Abdullahi"/>    
+    </div>    
+    <h3> follow Sadiya Abdullahi on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href=""><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Sadeeya)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Islamic Scholar</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="bilkisu_isah">    
+  <h2>Bilkisu Isah</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="bilkisu isah, nickname.beely, phone no.08039124384, town .fatara estate,ambition.madicine .jpg" alt="Bilkisu Isah"/>    
+    </div>    
+    <h3> follow Bilkisu Isah on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348039124384"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Beely)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Medicine</p>    
+      <p><strong>Address:</strong> Fatara Estate</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="lawan_dauda">    
+  <h2>Lawan Dauda</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="lawan dauda, nickname,d.daud, phone no.08064197998, town.shuwarin, ambition,weldering.jpg" alt="Lawan Dauda"/>    
+    </div>    
+    <h3> follow Lawan Dauda on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348064197998"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (D.Daud)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Weldering</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="salim_musa">    
+  <h2>Salim Musa</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Salim Musa, nicknameSalim.phone number 08143666846.Town Rande.Ambition Soft ware Engineer.jpg" alt="Salim Musa"/>    
+    </div>    
+    <h3> follow Salim Musa on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348143666846"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Salim)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Software Engineer</p>    
+      <p><strong>Address:</strong> Rande</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="tijjani_dauda">    
+  <h2>Tijjani Dauda</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="tijjani dauda, Nickname.tijeboy, phone no.07068731320, town.korama,ambition.yahoo.jpg" alt="Tijjani Dauda"/>    
+    </div>    
+    <h3> follow Tijjani Dauda on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347068731320"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Tijeboy)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Yahoo</p>    
+      <p><strong>Address:</strong> Korama</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="zainab_muhammad_adam">    
+  <h2>Zainab Muhammad Adam</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Zainab Muhammad Adam, nickname zee Mama, phone no.08101511102, town.shuwarin, ambition.madical dactor.jpg" alt="Zainab Muhammad Adam"/>    
+    </div>    
+    <h3> follow Zainab Muhammad Adam on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348101511102"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Zee Mama)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Medical Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="ahmad_sabo">    
+  <h2>Ahmad Sabo</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Ahmad sabo, nickname.2ic, phone no.08133017457, town. shuwarin,ambition.army.jpg" alt="Ahmad Sabo"/>    
+    </div>    
+    <h3> follow Ahmad Sabo on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348133017457"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (2ic)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Army</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="rabi_atu_muhammad_adam">    
+  <h2>Rabi Atu Muhammad Adam</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="rabi atu Muhammad Adam, nickname yar Mama, phone no.09036135478, town.shuwarin, ambition.computer engineering.jpg" alt="Rabi Atu Muhammad Adam"/>    
+    </div>    
+    <h3> follow Rabi Atu Muhammad Adam on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349036135478"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Yar Mama)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Computer Engineering</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="rayyanu_adamu">    
+  <h2>Rayyanu Adamu</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Rayyanu Adamu, nickname Raihan.phone number 08037586315.Town Shuwarin.Ambition Doctor.jpg" alt="Rayyanu Adamu"/>    
+    </div>    
+    <h3> follow Rayyanu Adamu on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348037586315"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Raihan)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="zainab_yusuf">    
+  <h2>Zainab Yusuf</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Zainab Yusuf,nick name Ummee.phone number 09161645348.Town. Shuwarin.Ambition Doctor.jpg" alt="Zainab Yusuf"/>    
+    </div>    
+    <h3> follow Zainab Yusuf on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349161645348"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Ummee)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hauwau_isiyaku">    
+  <h2>Hauwa U Isiyaku</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="hauwa u isiyaku, nickname.hauwell, phone no.07018932101, town.shuwarin, ambition.business.jpg" alt="Hauwa U Isiyaku"/>    
+    </div>    
+    <h3> follow Hauwa U Isiyaku on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347018932101"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Hauwell)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Business</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="safiya_garba">    
+  <h2>Safiya Garba</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="safiya garba, nickname.ummee, phone no.07073205632, town.shuwarun, ambition.maried.jpg" alt="Safiya Garba"/>    
+    </div>    
+    <h3> follow Safiya Garba on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347073205632"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Ummee)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Married</p>    
+      <p><strong>Address:</strong> Shuwarun</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="usman_abdullahi_mantee">    
+  <h2>Usman Abdullahi</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Usman Abdullahi, nick name mantee.phone number 09121783642. Town Shuwarin.Ambition Business man.jpg" alt="Usman Abdullahi"/>    
+    </div>    
+    <h3> follow Usman Abdullahi on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349121783642"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Mantee)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Business Man</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hassan_muhammad">    
+  <h2>Hassan Muhammad</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="hassan Muhammad, nickname.mysa, phone no.08037601509, town..shuwarin, ambition.army.jpg" alt="Hassan Muhammad"/>    
+    </div>    
+    <h3> follow Hassan Muhammad on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348037601509"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Mysa)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Army</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="saima_ahmad_rufa">    
+  <h2>Saima Ahmad Rufa I.</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="saima Ahmad rufa i., nickname.saimatee, phone no.07001797207,town.shuwarin, ambition.dresser.jpg" alt="Saima Ahmad Rufa I."/>    
+    </div>    
+    <h3> follow Saima Ahmad Rufa I. on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347001797207"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Saimatee)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Dresser</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="hannatu_umar">    
+  <h2>Hannatu Umar</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="hannatu Umar, nickname.dada, phone no.08087180051, town.shuwarin, ambition.physics.jpg" alt="Hannatu Umar"/>    
+    </div>    
+    <h3> follow Hannatu Umar on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348087180051"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Dada)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Physics</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="safiya_garba_ummee">    
+  <h2>Safiya Garba</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="Safiya Garba,nick name Ummee. phone number 07073205632.Yown Shuqarin. Ambition Marriage.jpg" alt="Safiya Garba"/>    
+    </div>    
+    <h3> follow Safiya Garba on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2347073205632"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Ummee)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Marriage</p>    
+      <p><strong>Address:</strong> Shuqarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="ubaida_nasir">    
+  <h2>Ubaida Nasir</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="ubaida Nasir, nickname.ubeey yar Mama, phone no.09126106570, town.shuwarin, ambition.biology.jpg" alt="Ubaida Nasir"/>    
+    </div>    
+    <h3> follow Ubaida Nasir on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349126106570"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Ubeey Yar Mama)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Biology</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="ummusalma_muhammad">    
+  <h2>Ummusalma Muhammad</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="ummusalma Muhammad, nickname.salma, phone no.08160289071, town.shuwarin, ambition.dactor.jpg" alt="Ummusalma Muhammad"/>    
+    </div>    
+    <h3> follow Ummusalma Muhammad on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2348160289071"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Salma)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+
+<div class="member-card" id="ummusalma_babangida">    
+  <h2>Ummusalma Babangida</h2>    
+  <div class="member-content">    
+    <div class="member-image">    
+      <img src="ummusalma babangida, nickname. ummi, phone no.09039733518,town.shuwarin, ambition.dactor.jpg" alt="Ummusalma Babangida"/>    
+    </div>    
+    <h3> follow Ummusalma Babangida on</h3>
+    <div class="social-icons">    
+      <a href="#"><img src="Facebook.svg" alt="Facebook"></a>    
+      <a href=""><img src="Telegram.svg" alt="Telegram"></a>    
+      <a href="https://wa.me/2349039733518"><img src="bxl-whatsApp.svg" alt="WhatsApp"></a>    
+    </div>    
+    <div class="member-info">    
+      <p><strong>Nickname:</strong> Abba (Ummi)</p>    
+      <p><strong>Rank:</strong> Head student</p>    
+      <p><strong>Department:</strong> Science</p>    
+      <p><strong>Ambition:</strong> Doctor</p>    
+      <p><strong>Address:</strong> Shuwarin</p>    
+    </div>    
+  </div>    
+</div>
+</div>
+
+<!-- continuing exactly in this format for 36 → 60 … -->
+
+
+</section>
+    </div>  
+  </section>  
+
+  <!-- Prefect Section -->    
+  <section id="perfect">  
+    <h1>Prefect People</h1>  
+    <ul>  
+      <li>Dahiru Nasiru </li>  
+      <li>Hauwa'u magaji</li>  
+      <li>Mansur Idris</li>  
+      <li>Zahara'u Auwalu</li>  
+    </ul>  
+  </section>  
+
+  <!-- Developer Section -->    
+  <section id="developer">  
+    <h1>Developer</h1>  
+    <p>This website was created by Dahiru Nasiru using HTML, CSS, and JavaScript.</p>  
+  </section>  
+
+  <!-- JavaScript -->    
+  <script>  
+    // Section navigation  
+    const navLinks = document.querySelectorAll('#nav a');  
+    const sections = document.querySelectorAll('section');  
+
+    navLinks.forEach(link => {  
+      link.addEventListener('click', function(e) {  
+        e.preventDefault();  
+        const target = this.getAttribute('href').substring(1);  
+          
+        // Hide all sections  
+        sections.forEach(sec => sec.classList.remove('active'));  
+
+        // Show clicked section  
+        document.getElementById(target).classList.add('active');  
+          
+        // Scroll to top  
+        window.scrollTo({ top: 0, behavior: 'smooth' });  
+
+        // Reset search box when leaving members  
+        if (target !== 'members') {  
+          const searchInput = document.getElementById('searchInput');  
+          const memberCards = document.querySelectorAll('.member-card');  
+          if (searchInput) {  
+            searchInput.value = '';  
+            memberCards.forEach(card => card.style.display = 'block');  
+          }  
+        }  
+      });  
+    });  
+
+    // Search filter  
+    const searchInput = document.getElementById('searchInput');  
+    const memberCards = document.querySelectorAll('.member-card');  
+
+    if (searchInput) {  
+      searchInput.addEventListener('input', () => {  
+        const value = searchInput.value.toLowerCase();  
+
+        memberCards.forEach(card => {  
+          const name = card.querySelector('h2').textContent.toLowerCase();  
+          if (name.includes(value)) {  
+            card.style.display = 'block';  
+          } else {  
+            card.style.display = 'none';  
+          }  
+        });  
+      });  
+    }  
+
+    // Slider JS  
+    var images = [  
+      'Screenshot_20250329-011950.png',  
+      'mata.jpg',  
+      'form1.jpg',  
+      '/storage/emulated/0/Venter/HopWeb/Projects/my phone/class members.html/pictures /09c9d502c519426d92b8ca84e9decffd.jpg',  
+      '/storage/emulated/0/Venter/HopWeb/Projects/my phone/class members.html/pictures /1684a672c3c14bd58fd60ebc84e10cc8(1).jpg',  
+      '/storage/emulated/0/Venter/HopWeb/Projects/my phone/class members.html/pictures /1746128820382-1.jpg',  
+      '/storage/emulated/0/Venter/HopWeb/Projects/my phone/class members.html/pictures /1746128820382-1.jpg',  
+      '/storage/emulated/0/Venter/HopWeb/Projects/my phone/class members.html/pictures /1753791784685.1753791691913.3825-Pica (1).png',  
+      '/storage/emulated/0/Venter/HopWeb/Projects/my phone/class members.html/pictures /1754689669982-1.jpg',  
+      '/storage/emulated/0/Venter/HopWeb/Projects/my phone/class members.html/pictures /IMG-20250824-WA0131_1(0).jpg',  
+      '/storage/emulated/0/Venter/HopWeb/Projects/my phone/class members.html/pictures /053d20f50c224bae9e2dc945a7d0a2bc.jpg',  
+      '/storage/emulated/0/Venter/HopWeb/Projects/my phone/class members.html/pictures /011100ec9b444fc4b172516e5223b566.jpg',  
+      '/storage/emulated/0/Venter/HopWeb/Projects/my phone/class members.html/IMG-20250606-WA0022~2.jpg',  
+      'class members.html/1684a672c3c14bd58fd60ebc84e10cc8.jpg'  
+    ];  
+    var num = 0;  
+
+    function next(){  
+      var slider = document.getElementById('slider');  
+      num++;  
+      if (num >= images.length){  
+        num = 0;  
+      }  
+      slider.src=images[num];  
+    }  
+
+    function prev(){  
+      var slider = document.getElementById('slider');  
+      num--;  
+      if (num < 0){  
+        num = images.length -1;  
+      }  
+      slider.src=images[num];  
+    }  
+  </script>  
+</body>  
+</html>
